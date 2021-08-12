@@ -1,0 +1,49 @@
+<idea-plugin>
+  <!--插件的id，需要保持唯一-->
+  <id>com.lesscoding.plugin.lesscode</id>
+  <name>Less Coding</name>
+  <version>1.0</version>
+  <vendor email="2496290990@qq.com" url="http://lesscoding.net">Eleven</vendor>
+  <!--功能描述-->
+  <description><![CDATA[
+      <h1>准备做一个基于 database tool的插件</h1>
+      <hr/>
+      <p>
+           一个基于 database tool的插件，选中数据表之后右键点击 Less Coding
+        选择需要用的语言的技术，
+          比如：
+              java :
+                spring boot  mybatis / mybatis-plus
+              front-end:
+                vue Layui js Jquery
+              PHP :
+                ThinkPHP5 / 6
+          一键生成简单的增删改查以及前端页面
+      </p>
+    ]]></description>
+
+  <!--版本更新日志-->
+  <change-notes><![CDATA[
+      暂时还没有添加任何的内容
+      只能根据database tool 生成相关的内容了
+      - 添加了 icon
+    ]]>
+  </change-notes>
+
+  <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.platform</depends>
+  <!--其他扩展内容-->
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+  <!--菜单动作-->
+  <actions>
+    <!-- Add your actions here -->
+    <action id="con.lesscoding.action" class="MainAction" text="main"/>
+  </actions>
+
+</idea-plugin>

@@ -31,10 +31,10 @@ def generate(table, dir) {
     //通用返回类型
     def commonResult = "R"
     def resultClass = "com.huazheng.tunny.common.core.util.R";
-    //生成pojo
+    /*
     new File(dir, className + ".java").withPrintWriter("utf-8") {
         out -> generate(out, className, fields, table.getName(), table.getComment(), getPackageName(dir.toString()))
-    }
+    }*/
     //生成entity
     new File(getPath(dir.toString(), "entity"), className + ".java").withPrintWriter("utf-8") {
         out -> generateEntity(out, className, fields, table.getName(), table.getComment(), classNameResult)
@@ -337,17 +337,16 @@ def generateXml(out, className, fields, tableName, tableComment, classNameResult
     out.println "<mapper namespace=\"$classNameResult.mapperPackage" + ".$classNameResult.mapper\">"
     out.println "    <resultMap id=\"baseMap\" type=\"$classNameResult.classPackage\">"
     String columns = "";
-    def properties
+    String[] properties = new String[fields.size()]
+    i = 0;
     fields.each() {
         String property = it.name
-        properties +=
-                ("#{&" + property + "}, ")
-
+        properties[i++] = "#{&" + property + "}, "
         String column = humpToUnderLine(property)
         columns += (column + " , ")
         out.println "        <result property=\"$property\" column=\"$column\" />"
     }
-    columns = columns.substring(0, columns.length() - 1)
+    columns = columns.substring(0, columns.length() - 2)
     out.println "    </resultMap>"
     out.println ""
     out.println "    <sql id=\"baseColumn\">"
@@ -367,12 +366,10 @@ def generateXml(out, className, fields, tableName, tableComment, classNameResult
     int i = 0;
     properties.each() {
         String item = it.toString().replaceFirst("&","")
-        if(i != properties.length() - 1 && i <= 4){
-            out.print "$item"
-        }else{
-            item = item.replaceAll(",","")
-            out.print "$item"
+        if(i == properties.length - 1){
+            item = item.substring(0,item.length() - 2)
         }
+        out.print "$item"
         i++
     }
     out.println ""

@@ -1,0 +1,4 @@
+// 自动导入配置文件
+#foreach($import in $importList)
+import $!import;
+#end

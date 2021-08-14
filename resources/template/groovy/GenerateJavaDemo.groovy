@@ -491,8 +491,8 @@ def getAllClassAndAlias(String className, String dir) {
             mapperPackage    : getOtherPackageName(packageName, "mapper"),
             className        : className,
             classAlias       : initialToLowerCase(className),
-            classPackage     : getOtherPackageName(packageName, "eneity") + "." + className,
-            entity           : getOtherPackageName(packageName, "eneity")
+            classPackage     : getOtherPackageName(packageName, "entity") + "." + className,
+            entity           : getOtherPackageName(packageName, "entity")
     ]
 }
 

@@ -448,7 +448,10 @@ def javaName(str, capitalize) {
  * @return
  */
 def getPackageName(str) {
-    def path = str.split("java");
+    String[] path = str.split("java")
+    if(path.length < 2){
+        path = str.split("src")
+    }
     path[1].replaceAll(/[\\]/, ".")
             .substring(1)
 }

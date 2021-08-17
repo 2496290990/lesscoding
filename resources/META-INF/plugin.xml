@@ -43,7 +43,10 @@
   <!--菜单动作-->
   <actions>
     <!-- Add your actions here -->
-    <action id="con.lesscoding.action" class="MainAction" text="main"/>
+    <action id="MainAction" class="net.lesscoding.action.MainAction" text="LessCoding" description="LessCoding代码生成器">
+      <add-to-group group-id="DatabaseViewPopupMenu" anchor="first"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl alt I"/>
+    </action>
   </actions>
 
 </idea-plugin>
